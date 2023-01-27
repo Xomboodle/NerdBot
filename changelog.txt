@@ -1,0 +1,158 @@
+```
+V.0.5.5
+This update provides some multi-server compatibility.
+-Given NerdBot the ability to send update messages to all servers it is in.
+-Provided NerdBot with services required for server-specific commands.
+-Updated highscore so that it will display your username if you don't have
+a nickname in the server you access it from.
+
+V.0.5.4 - Adventure Update 2 Electric Boogaloo
+At long last, the adventure update is back, with new and improved
+everything (I hope). This update brings back the adventuring commands,
+with a much better backend to support it. Also, bugfixes, because I hate bugs.
+Update notes:
+-Added start command, to create character
+-Added end command, to delete character
+-Added profile command, to view character
+-Added battle command, to go on quests
+-Added helprpg command, to view the adventuring commands' help
+-Updated help command to include helprpg
+-Fixed crate claiming message not always working
+-Fixed issue with some user reactions not triggering bot reactions
+-Fixed typos in help command
+
+V.0.5.3
+This update has been a too long a time coming. A lot of background stuff has been updated,
+such as readability within the bot's code. A few additional changes have been made,
+listed here. There will likely be more bugfixes over time, as there is only so much I
+can test on my own.
+-Leaderboard now utilises JSON file to store scores.
+-leaderboard command renamed to highscore
+-Scores on leaderboard have been reset. Say goodbye to your great fortunes.
+-Christmas bot theme removed (part of an invisible update)
+-Bot activity updated.
+-Crate message now updates when the crate is claimed.
+The actual adventurey part of the Adventure Update (V0.5) is still in the tool shop, but
+now that I can read my own code again, and I've discovered the wonders of JSON, it may be
+returning soon.
+
+V.0.5.2
+-Rewritten the bot to improve some of the spaghet it ran on.
+-Implemented some spam prevention on the bot's reactions to your reactions.
+-Temporarily removed the ability to go on adventures while it gets fixed. The monsters are on holiday.
+
+V.0.5.1b
+-Fixed issue with timeout on character creation not working
+-Actually fixed issue with character profiles overwriting each other
+
+V.0.5.1
+-Fixed issue with character profiles overwriting each other
+-Deleted any profiles so the fix can be implemented
+
+V.0.5 - The Adventure Update
+This update brings the opportunity to start adventures. Make a character and send them on quests, 
+collecting cool items and gaining xp to level them up as you go. More additions will be added to
+this system in future updates.
+Full changelog below:
+-Added start command to make your character.
+-Added profile command to view your character.
+-Added adventure command to send your character on quests for xp (loot will be added in the future)
+-Removed card and diceroll commands, due to unpopular demand.
+-The little gremlin in charge of restoring balance to ... well, anything, has finally fixed the issue 
+ with Josh always losing. You're welcome.
+-Added more insults to the insult list. Roast each other to your heart's content.
+-Updated help command accordingly.
+-Altered visuals of help command, for easier reading.
+
+V.0.4.3
+-Added clams. Claim the clams if you find a clam to claim. Legit or quit.
+
+V.0.4.2
+-Added bonk and unbonk command. When the peasants begin to revolt, throw 'em in a cell. Can only be used by someone with Manage Permissions.
+-The "Josh always losing to rps"-fixer went on strike due to bad pay, so it hasn't been fixed.
+
+V.0.4.1
+-Added meme command. It wouldn't be a meme update without memes.
+-Updated help command to display meme command.
+-Added bot reactions to all custom emojis. Have fun.
+-Added new insults to the insult command. Now you can roast your friends even more creatively.
+-Still did not fix only Josh always losing with rps command. It hasn't stopped being funny yet.
+
+V.0.4.0 - The Meme Update
+-Changed reaction to poop emoji to be more suitable.
+-Added bot reactions to various emoji reactions (custome emojis included).
+-Added coins command to check your own coin balance from gambling.
+-Updated help command to display both the recent command and coins command.
+-Fixed automatic update message displaying even when there wasn't a new update.
+-Did not fix only Josh always losing with the rps command. It's funny.
+
+V.0.3.12
+-screw you Josh, but optimised
+
+V.0.3.11
+-haha, screw you Josh
+
+V.0.3.10
+-Added recent command to see the absolute latest addition.
+-Added automatic call to recent on bot startup. Just like this!
+
+V.0.3.9
+-Added reaction to poop reactions. Toilet humour is funny.
+
+V.0.3.8
+-Redesigned the output of card and diceroll commands.
+-diceroll command now displays total of all rolls.
+-Added checks to diceroll command so those pesky QA testers can't break it with their fangled words.
+
+V.0.3.7
+-Fixed loot crates giving multiple rewards per crate.
+-Introduced limit to number of dicerolls (max is now 10).
+
+V.0.3.6
+-Altered leaderboard mechanics to access user IDs instead of their nicknames.
+-Broke every gambling related command.
+-Fixed every gambling related command.
+
+V.0.3.5
+-Fixed rps command not invalidating words as amounts to gamble.
+
+V.0.3.4
+-Added loot crates, for that chance to get a little extra worthless cash.
+
+V.0.3.3
+-Altered betting so you can't bet more than you have.
+-Altered losses so you'll always have at least something to bet.
+
+V.0.3.2
+-Added leaderboard. Now you can see who's better at winning (or losing) money.
+-Added (fake) currency. Everybody starts with 10 coins.
+-Integrated currency gambling into the rps command.
+
+V.0.3.1
+-Added rps command. Rock, paper, scissors has never been better (it probably has).
+
+V.0.3.0 - The Gambler's Update
+-Added diceroll and card commands, for some gambling fun.
+
+V.0.2.2
+-Added trigger words in regular messages.
+
+V.0.2.1
+-Some internal changes to how the changelog is accessed.
+
+V.0.2.0 - The Permanence Update
+-Relocated bot to a place of hardcore training. Now it will never rest. Most of the time.
+
+V.0.1.3
+-Added bot activity.
+
+V.0.1.2
+-Added smite command, cause why not.
+
+V.0.1.1
+-Added new insult command, to anger your friends anonymously.
+-Added help command, for when you're lost.
+
+V0.1.0 - The Creation Update
+-Created bot. Woop!
+```

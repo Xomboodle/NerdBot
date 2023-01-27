@@ -1,0 +1,7 @@
+```
+V.0.5.5
+This update provides some multi-server compatibility.
+-Given NerdBot the ability to send update messages to all servers it is in.
+-Provided NerdBot with services required for server-specific commands.
+-Updated highscore so that it will display your username if you don't have
+a nickname in the server you access it from.```
