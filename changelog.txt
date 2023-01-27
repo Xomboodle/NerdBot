@@ -1,4 +1,11 @@
 ```
+V.0.5.5a
+A quick little patch to fix some issues:
+-Fixed specified default emojis not having bot reactions.
+-Fixed highscore displaying scores in reverse order.
+-Fixed typo in the helprpg command's embed.
+-Fixed highscore breaking on servers that don't have every person ever in.
+
 V.0.5.5
 This update provides some multi-server compatibility.
 -Given NerdBot the ability to send update messages to all servers it is in.
