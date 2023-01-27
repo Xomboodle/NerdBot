@@ -29,8 +29,7 @@ CLAM_IMAGE = "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Clams_" 
              "beaches_-_panoramio.jpg"
 REACTION_IMAGES = {
     "💩": 'https://tenor.com/view/elmo-poop-gif-18814641',
-    "👍": 'https://tenor.com/view/boy-kid-computer-thumbs-up-face-gif-'
-                '9548945',
+    "👍": 'https://tenor.com/view/boy-kid-computer-thumbs-up-face-gif-9548945',
     "sip": 'https://tenor.com/view/espresso-classy-pinkies-up-sips-tea-sipping'
            '-gif-7250101',
     "beans": 'https://tenor.com/view/dance-bean-dancing-cute-funny-gif-'
@@ -188,9 +187,9 @@ async def on_reaction_add(reaction, user):
     else:
         last_react = user
     try:
-      reaction_name = str(reaction.emoji.name)
+        reaction_name = str(reaction.emoji.name)
     except AttributeError:
-      reaction_name = reaction.emoji
+        reaction_name = reaction.emoji
     # Sends corresponding message based on reaction made.
     if reaction_name in REACTION_IMAGES:
         await reaction.message.channel.send(REACTION_IMAGES[reaction_name])
@@ -427,8 +426,8 @@ async def highscore(ctx):
         try:
             user = ctx.guild.get_member(int(leaderboard_users[position+skipped]))
             if user is None:
-              skipped += 1
-              continue
+                skipped += 1
+                continue
         except IndexError:
             # In event of less than 10 users in JSON file
             break
