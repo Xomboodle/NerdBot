@@ -852,5 +852,9 @@ async def help(ctx):
 
 
 # Run the bot
-keep_alive()
-bot.run(TOKEN)
+try:
+    keep_alive()
+    bot.run(TOKEN)
+except discord.errors.HTTPException:
+    os.system('kill 1')
+    os.system('python restarter.py')
