@@ -499,13 +499,13 @@ async def rps(ctx, arg=None, arg2=0):
             or (bot_choice - player_choice == -2):
         # Loss results
         await ctx.channel.send(
-            f"I chose {bot_choice}. You lose {arg2} coins."
+            f"I chose {choices[bot_choice]}. You lose {arg2} coins."
         )
         update_score(user, -arg2)
     else:
         # Win results
         await ctx.channel.send(
-            f"I chose {bot_choice}. You win {arg2} coins!"
+            f"I chose {choices[bot_choice]}. You win {arg2} coins!"
         )
         update_score(user, arg2)
 
