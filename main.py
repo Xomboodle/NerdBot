@@ -40,6 +40,13 @@ REACTION_IMAGES = {
                    '20735320',
     "sus": 'https://tenor.com/view/hmm-suspect-gif-22611582'
 }
+RARITY_NAMES = ["Uncommon", "Rare", "Epic", "Legendary"]
+MONSTER_RARITY = [500, 250, 50, 5]  # Randomiser is 0-1000
+BASE_ITEM_RARITY = [5000, 2500, 1000, 100, 1]  # Randomiser is 0-10000
+ITEM_RARITY_MODIFIERS = [[200, 100, 0, 0, 0],
+                         [500, 200, 50, 0, 0],
+                         [1000, 400, 70, 5, 0],
+                         [2500, 1000, 200, 100, 1]]
 # Constant for rpg commands rules
 RPG_HELP_EMBED = discord.Embed(
     title="RPG Help (Prefix !)",
@@ -686,10 +693,12 @@ async def battle(ctx, level=None):
     use_monsters = []
     for monster in rpg["monsters"]:
         print(monster)
-        if rpg[monster]["level"] <= level != 6:
+        # Excepting LV 6, all monsters of equal or lower level can be fought.
+        # For LV 6, only LV 6 monsters can be fought.
+        if rpg["monsters"][monster]["level"] <= level != 6:
             temp_dict = {monster: rpg["monsters"][monster]}
             use_monsters.append(temp_dict)
-        elif rpg[monster]["level"] == level == 6:
+        elif rpg["monsters"][monster]["level"] == level == 6:
             temp_dict = {monster: rpg["monsters"][monster]}
             use_monsters.append(temp_dict)
 
@@ -703,12 +712,32 @@ async def battle(ctx, level=None):
     # Determine monsters to actually fight
     to_fight = {}
     total_strength = 0
+    item_rarities = BASE_ITEM_RARITY.copy()
     for add in range(total_monsters):
         to_add_number = random.randint(0, len(use_monsters)-1)
         to_add_monster = [*use_monsters[to_add_number].values()]
-        total_strength += to_add_monster[0]["strength"]
+        # Determine rarity of monster
+        rare_value = random.randint(0, 1000)
+        for value in range(len(MONSTER_RARITY)-1, -1, -1):
+            if (1000 - rare_value) <= value:
+                rarity_name = f"[{RARITY_NAMES[MONSTER_RARITY.index(value)]}]"
+                rarity_multiplier = 2 + MONSTER_RARITY.index(value)
+                break
+        else:
+            rarity_name = ""
+            rarity_multiplier = 1
+        # Determine changes to item spawn rarity
+        if rarity_name != "":
+            modifiers = ITEM_RARITY_MODIFIERS[RARITY_NAMES.index(rarity_name[1:-1])]
+            for count in range(len(item_rarities)):
+                item_rarities[count] += modifiers[count]
+            for value in range(len(item_rarities)):
+                if item_rarities[value] > 10000:
+                    item_rarities[value] = 10000
 
-        name = list(use_monsters[to_add_number].keys())[0]
+        total_strength += (to_add_monster[0]["strength"] * rarity_multiplier)
+
+        name = f"{list(use_monsters[to_add_number].keys())[0]} {rarity_name}"
         if name in to_fight:
             to_fight[name]["count"] += 1
         else:
@@ -765,6 +794,14 @@ async def battle(ctx, level=None):
                 value=f"Level increased to {rpg['players'][user]['level']}. "
                       f"All stats boosted."
             )
+        # Determine if item acquired
+        item_chance = random.randint(1, 10000)
+        for value in range(len(item_rarities)-1, -1, -1):
+            if (10000 - item_chance) < value:
+                # TODO:
+                #  Give item to player
+                break
+
     with open('rpg.json', 'w') as w_file:
         json.dump(rpg, w_file)
 
