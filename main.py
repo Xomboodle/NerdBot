@@ -368,8 +368,9 @@ async def claim(ctx):
         return
     user = ctx.guild.get_member(ctx.author.id)
     score = random.randint(10, 30)
+
     await ctx.channel.send(
-        f"{user.nick} claimed the crate. They got {score} coins!"
+        f"{user.name if user.nick is None else user.nick} claimed the crate. They got {score} coins!"
     )
 
     update_score(str(user.id), score)
@@ -381,7 +382,7 @@ async def claim(ctx):
     )
     edited_embed.add_field(
         name="",
-        value=f"{user.nick} claimed this crate."
+        value=f"{user.name if user.nick is None else user.nick} claimed this crate."
     )
     await crate_embed[1].edit(embed=edited_embed)
     crate_embed = None
@@ -400,8 +401,8 @@ async def clam(ctx):
         return
     clam_embed = None
     await ctx.channel.send(
-        f"{ctx.author.nick} claimed the clam. Claiming the clam clears the "
-        f"clog of clams to claim, 'til another clam comes along."
+        f"{ctx.author.name if ctx.author.nick is None else ctx.author.nick} claimed the clam. Claiming the clam clears"
+        f" the clog of clams to claim, 'til another clam comes along."
     )
 
 

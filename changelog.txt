@@ -1,4 +1,8 @@
 ```
+V.0.5.5b
+Some more bugfixes:
+-Fixed crate and clam not displaying claimer's name if they don't have a nickname.
+
 V.0.5.5a
 A quick little patch to fix some issues:
 -Fixed specified default emojis not having bot reactions.
