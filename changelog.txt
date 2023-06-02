@@ -1,4 +1,12 @@
 ```
+V.0.5.6
+More bugfixes and adjustments:
+-Fixed battle command not working due to incorrect usage of dictionary.
+-Fixed typo in smite command's message.
+-Reduced minimum number of enemies that can be fought with the battle
+command to give lower level characters slightly increased odds of
+winning.
+
 V.0.5.5b
 Some more bugfixes:
 -Fixed crate and clam not displaying claimer's name if they don't have a nickname.

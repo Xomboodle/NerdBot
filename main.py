@@ -335,7 +335,7 @@ async def smite(ctx, arg=None):
         await ctx.channel.send(f"{arg} was confused, and hurt themselves!")
         return
     await ctx.channel.send(f"The gods dislike you, {arg}. They smite you into"
-                           f"oblivion.")
+                           f" oblivion.")
 
 
 @bot.command()
@@ -692,7 +692,7 @@ async def battle(ctx, level=None):
 
     # Get list of monsters with specified level
     use_monsters = []
-    for monster in rpg["monsters"]:
+    for monster in rpg["monsters"].keys():
         print(monster)
         # Excepting LV 6, all monsters of equal or lower level can be fought.
         # For LV 6, only LV 6 monsters can be fought.
@@ -707,7 +707,7 @@ async def battle(ctx, level=None):
     if level == 6:
         total_monsters = 1
     else:
-        total_monsters = random.randint(4+random.randint(0, level),
+        total_monsters = random.randint(2+random.randint(0, level),
                                         10+random.randint(0, level))
 
     # Determine monsters to actually fight
@@ -769,10 +769,10 @@ async def battle(ctx, level=None):
     )
     fought_text = ""
     for fought in to_fight:
-        fought_text += f"{fought} x {fought['count']}\n"
+        fought_text += f"{fought} x {to_fight[fought]['count']}\n"
     results_embed.add_field(
         name="Monsters fought:",
-        value=f"```\n{fought_text}",
+        value=f"```\n{fought_text}```",
         inline=False
     )
     if win:
