@@ -3,7 +3,7 @@
 # Imports
 import os
 
-import cv2
+import inspirobot
 
 import discord
 from discord.ext import commands
@@ -140,7 +140,7 @@ async def on_message(message):
     global crate_embed
     global clam_embed
 
-    message_content = message.content
+    message_content = message.content.lower()
     # Checks that the message sent was not by the bot itself.
     if message.author == bot.user:
         return
@@ -176,8 +176,13 @@ async def on_message(message):
         await message.channel.send(
             "Did you just say 'WORK'?! You should be gaming!"
         )
-    elif bot.command_prefix == message_content:
+    elif bot.command_prefix == message_content or "nerdbot" in message_content:
         await message.channel.send("Huh? Whaddya want?")
+    elif "inspire me" in message_content:
+        quote = inspirobot.generate()
+        await message.channel.send(quote.url)
+    elif "backflip" in message_content:
+        backflip(message)
 
 
 @bot.listen()
@@ -836,6 +841,10 @@ async def help(ctx):
         name="bonk <user>",
         value="```Send a user to jail. Requires Manages Permissions to use."
               "```"
+    )
+    help_embed.add_field(
+        name="backflip",
+        value="```Force NerdBot to backflip. He can also do this voluntarily.```"
     )
     help_embed.add_field(
         name="claim",
