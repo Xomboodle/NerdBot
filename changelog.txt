@@ -1,4 +1,11 @@
 ```
+V.0.6.0 - The Why Not? Update
+Time to add features just because I feel like it:
+-Added Inspirobot to Nerdbot. Just use the words "inspire me" in your message.
+-Allowed Nerdbot to choose to do backflips if they see the word "backflip" in a
+message.
+-Nerdbot now responds to their name being used in passing.
+
 V.0.5.7
 Challenge accepted:
 -Added backflip command.
