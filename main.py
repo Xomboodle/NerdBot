@@ -23,6 +23,9 @@ from dotenv import load_dotenv
 
 # Constants
 TOKEN = os.environ.get('BOT_SECRET')
+NERD_RESPONSES = ["Huh? Whaddya want?", "Five more minutes please...",
+                  "Was someone talking about me?", "BOO! Did I scare you?"]
+SWEARS = ["fuck", "shit", "bitch"]
 CRATE_IMAGE = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTPfxjHhIv" \
               "-xFHAsZNnLmjPyba-AgbcE0jwNcN-B7LR8EPMWnGObIkQEGTSmlWXMrXe0Pc&us" \
               "qp=CAU"
@@ -172,17 +175,22 @@ async def on_message(message):
         await message.channel.send(embed=clam_embed)
 
     # Checks for keywords
+    for word in SWEARS:
+        if word in message_content:
+            await message.channel.send("Ooh, do you kiss your momma with that mouth?")
+            break
     if "work" in message_content:
         await message.channel.send(
             "Did you just say 'WORK'?! You should be gaming!"
         )
-    elif bot.command_prefix == message_content or "nerdbot" in message_content:
-        await message.channel.send("Huh? Whaddya want?")
     elif "inspire me" in message_content:
         quote = inspirobot.generate()
         await message.channel.send(quote.url)
     elif "backflip" in message_content:
         backflip(message)
+    elif bot.command_prefix == message_content or "nerdbot" in message_content:
+        response = random.randint(0, len(NERD_RESPONSES)-1)
+        await message.channel.send(response)
 
 
 @bot.listen()
