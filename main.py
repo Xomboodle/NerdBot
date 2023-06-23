@@ -3,6 +3,8 @@
 # Imports
 import os
 
+import cv2
+
 import discord
 from discord.ext import commands
 from discord.ext.commands import has_permissions
@@ -337,6 +339,11 @@ async def smite(ctx, arg=None):
     await ctx.channel.send(f"The gods dislike you, {arg}. They smite you into"
                            f" oblivion.")
 
+
+@bot.command()
+async def backflip(ctx):
+    """Shows an epic backflip."""
+    await ctx.channel.send(file=discord.File("Nerdflip.gif"))
 
 @bot.command()
 async def meme(ctx):
